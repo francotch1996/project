@@ -301,7 +301,7 @@ function findRestaurants(db,criteria,max,callback) {
 		assert.equal(err, null); 
 		if (doc != null) {
 			restaurants.push(doc);
-		} else {g
+		} else {
 			callback(restaurants); 
 		}
 	});
