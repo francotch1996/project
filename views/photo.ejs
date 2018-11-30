@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style> img {width: 40%;height: 40%;}</style>
+    </head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <body>
+        <div class="w3-container w3-green">
+	<form action="/" method="get" class="w3-container w3-card-4">
+	    <H1>Restaurant Name: <%=restaurants[0].name%></H1>
+	    <% if(restaurants[0].mimetype!="application/octet-stream"){%>
+            <img src="data:<%=restaurants[0].mimetype%>;base64, <%=restaurants[0].photo%>">
+	    <%}%>
+	    <p>Cuisine: <%=restaurants[0].cuisine%></p>
+	    <p>Borough: <%=restaurants[0].borough%></p>
+            <p>Address: <%=restaurants[0].address.building%>, <%=restaurants[0].address.street%>, <%=restaurants[0].address.zipcode%>, <%=restaurants[0].address.coord.xcoord%>, <%=restaurants[0].address.coord.ycoord%></p>
+	    <%if(restaurants[0].address.coord.xcoord != "" && restaurants[0].address.coord.ycoord != ""){%>
+	    <a>Google Map: <%='https://www.google.com/maps/@'+restaurants[0].address.coord.xcoord+','+restaurants[0].address.coord.ycoord%>,20z</a>
+	    <%}%>
+        </div>
+    </body>
+</html>

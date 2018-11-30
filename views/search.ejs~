@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title>Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Search</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+	<form action="/processsearch" method="post" class="w3-container w3-card-4">
+	<select class="w3-select" name="wsearch">
+		<option value="owner_id">Owner id</option>
+		<option value="borough">Borough</option>
+		<option value="cuisine">Cuisine</option>
+		<option value="name">Restaurant Name</option>
+		<option value="address">Address</option>
+	</select>
+	<p>
+  	<input name="srh" class="w3-input" type="text" style="width:90%" >
+  	<p>
+		<button class="w3-btn">Search</button>
+	</form>
+</div>
+
+</body>
+</html>

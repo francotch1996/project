@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title>Rate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Rate restaurant</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+<form action="/processrate" method="post" class="w3-container w3-card-4">
+
+  <p>
+  <input name="restaurant_rid" class="w3-input" type="number" style="width:90%" required>
+  <label class="w3-label w3-validate">Enter the id of the restaurant</label></p>
+  <p>
+  <input name="r_score" class="w3-input" type="number" style="width:90%" min = "1" max = "10" >
+  <label class="w3-label w3-validate">Rate</label></p>
+  <p>
+  <button class="w3-btn w3-section w3-teal w3-ripple"> Submit </button></p>
+
+</form>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title>Display</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Search</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+	<form action="/processdisplay" method="post" class="w3-container w3-card-4">
+	<select class="w3-select" name="ddisplay">
+		<option value="restaurant_id">Restaurant id</option>
+		<option value="owner_id">Owner id</option>
+		<option value="borough">Borough</option>
+		<option value="cuisine">Cuisine</option>
+		<option value="name">Restaurant Name</option>
+	</select>
+	<p>
+  	<input name="drh" class="w3-input" type="text" style="width:90%" >
+  	<p>
+		<button class="w3-btn">Display</button>
+	</form>
+</div>
+
+</body>
+</html>
