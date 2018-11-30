@@ -81,7 +81,7 @@ app.post('/processrate', function(req, res) {
 			newValues['grades'] = restaurants[0].grades;
   			updateRestaurant(db,criteria,newValues,function(result) {
 				db.close();
-				res.writeHead(200, {"Content-Type": "text/plain"});
+				res.set({"Content-Type":"text/plain"});				
 				res.end("update was successful!");
 			});
  		});
@@ -123,12 +123,12 @@ app.post('/processUpdate', function(req, res) {
   					console.log('Connected to MongoDB\n');
   					updateRestaurant(db,criteria,newValues,function(result) {
 						db.close();
-						res.writeHead(200, {"Content-Type": "text/plain"});
+						res.set({"Content-Type":"text/plain"});
 						res.end("update was successful!");
 					});
  	 			});
 			}else{
-				 res.writeHead(500, {"Content-Type": "text/plain"});
+				 res.set({"Content-Type":"text/plain"});
 				 res.end('You are not the owner');
 			}
 		}
@@ -200,12 +200,12 @@ app.post('/processdelete', function(req, res){
 					console.log('Connected to MongoDB\n');
 					deleteRestaurant(db,criteria,function(result) {
 						db.close();
-						res.writeHead(200, {"Content-Type": "text/plain"});
+						res.set({"Content-Type":"text/plain"});
 						res.end("delete was successful!");			
 					});
 				});
 			}else{
-				res.writeHead(500, {"Content-Type": "text/plain"});
+				res.set({"Content-Type":"text/plain"});
 			        res.end('You are not the owner!');
 			}
 			}
