@@ -1,0 +1,35 @@
+{
+  "name": "marcomps381f",
+  "description": "A very simple Node.js app",
+  "author": "Marco Tam <www.marcoabc@gmail.com>",
+  "version": "1.0.0",
+  "dependencies": {
+    "semver": "^5.6.0",
+    "express": "latest",
+    "ejs": "^1.0.0",
+    "mongodb": "latest",
+    "cookie": "0.3.1",
+    "cookie-signature": "1.0.6",
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "cookie-session": "latest",
+    "formidable": "latest"
+
+
+  },
+  "engine": "node >= 0.10.0",
+  "scripts": {
+    "start": "node project"
+  },
+  "main": "project.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marco2518/proj.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marco2518/proj/issues"
+  },
+  "homepage": "https://github.com/marco2518/proj"
+}
