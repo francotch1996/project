@@ -7,7 +7,7 @@
     "semver": "^5.6.0",
     "express": "latest",
     "ejs": "^1.0.0",
-    "mongodb": "latest",
+    "mongodb": "^2.2.33",
     "cookie": "0.3.1",
     "cookie-signature": "1.0.6",
     "body-parser": "latest",
