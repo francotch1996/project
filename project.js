@@ -81,7 +81,7 @@ app.post('/processrate', function(req, res) {
 			newValues['grades'] = restaurants[0].grades;
   			updateRestaurant(db,criteria,newValues,function(result) {
 				db.close();
-				res.set({"Content-Type":"text/plain"});				
+				res.writeHead(200, {"Content-Type": "text/plain"});			
 				res.end("update was successful!");
 			});
  		});
