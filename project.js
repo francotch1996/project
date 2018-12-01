@@ -370,7 +370,6 @@ app.post('/api/restaurant/:insert',function(req,res){
       			res.status(500).json('{ status: ok }').end();			
 		});
 	});
-   });
 });
 
 
