@@ -1,7 +1,7 @@
 {
-  "name": "marcomps381f",
-  "description": "A very simple Node.js app",
-  "author": "Marco Tam <www.marcoabc@gmail.com>",
+  "name": "comps381f",
+  "description": "Project",
+  "author": "Marco Tam <www.francotch1996@gmail.com>",
   "version": "1.0.0",
   "dependencies": {
     "semver": "^5.6.0",
@@ -25,11 +25,11 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/marco2518/proj.git"
+    "url": "https://github.com/francotch1996/project.git"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/marco2518/proj/issues"
+    "url": "https://github.com/francotch1996/proj/issues"
   },
-  "homepage": "https://github.com/marco2518/proj"
+  "homepage": "https://github.com/francotch1996/proj"
 }
