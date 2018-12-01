@@ -360,7 +360,7 @@ app.post('/api/restaurant/:insert',function(req,res){
     max = 5
     result['grades'] = grades;
     MongoClient.connect(mongourl,function(err,db) {
-		if{insert.name==null){
+		if(insert.name==null){
 		  res.status(500).json('{ status: failed }').end();
 		}
 		assert.equal(err,null);
