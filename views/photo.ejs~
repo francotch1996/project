@@ -7,17 +7,29 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <body>
         <div class="w3-container w3-green">
-	<form action="/" method="get" class="w3-container w3-card-4">
 	    <H1>Restaurant Name: <%=restaurants[0].name%></H1>
 	    <% if(restaurants[0].mimetype!="application/octet-stream"){%>
             <img src="data:<%=restaurants[0].mimetype%>;base64, <%=restaurants[0].photo%>">
 	    <%}%>
-	    <p>Cuisine: <%=restaurants[0].cuisine%></p>
-	    <p>Borough: <%=restaurants[0].borough%></p>
-            <p>Address: <%=restaurants[0].address.building%>, <%=restaurants[0].address.street%>, <%=restaurants[0].address.zipcode%>, <%=restaurants[0].address.coord.xcoord%>, <%=restaurants[0].address.coord.ycoord%></p>
+	    <p>Create:   <%=restaurants[0].owner_id%></p>
+	    <p>Cuisine:  <%=restaurants[0].cuisine%></p>
+	    <p>Borough:  <%=restaurants[0].borough%></p>
+	    <p>Street:   <%=restaurants[0].address.street%></p>
+	    <p>Building: <%=restaurants[0].address.building%></p>
+	    <p>Zipcode:  <%=restaurants[0].address.zipcode%></p>
+	    <p>Coordinate: [<%=restaurants[0].address.coord.xcoord%>,<%=restaurants[0].address.coord.ycoord%>]</p>
 	    <%if(restaurants[0].address.coord.xcoord != "" && restaurants[0].address.coord.ycoord != ""){%>
-	    <a>Google Map: <%='https://www.google.com/maps/@'+restaurants[0].address.coord.xcoord+','+restaurants[0].address.coord.ycoord%>,20z</a>
+	    <a href="<%= link%>">Google Map Url</a></p>
 	    <%}%>
-        </div>
+	    <a href="<%= rlink%>">
+    	    <button class="w3-btn w3-section w3-teal w3-ripple">Rate</button>
+	    </a>
+	    <a href="<%= elink%>">
+  	    <button class="w3-btn w3-section w3-teal w3-ripple">Edit</button>
+	    </a>
+	    <a href="<%= mlink%>">
+  	    <button class="w3-btn w3-section w3-teal w3-ripple">Delete</button>
+	    </a>
+	    <button class="w3-btn w3-section w3-teal w3-ripple" onclick="goBack()">Go Back</button>
     </body>
 </html>

@@ -16,7 +16,6 @@
 		<option value="borough">Borough</option>
 		<option value="cuisine">Cuisine</option>
 		<option value="name">Restaurant Name</option>
-		<option value="address">Address</option>
 	</select>
 	<p>
   	<input name="srh" class="w3-input" type="text" style="width:90%" >

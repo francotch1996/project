@@ -11,10 +11,7 @@
 
 <div class="w3-container w3-half w3-margin-top">
 
-<form action="/processUpdate" method="post" class="w3-container w3-card-4">
-  <p>
-  <input name="restaurant_id" class="w3-input" type="text" style="width:90%" required>
-  <label class="w3-label w3-validate">Enter the id of the restaurant</label></p>
+<form action="<%= link%>" method="post" class="w3-container w3-card-4">
   <select name = "select" class="w3-select"">
 	<option value="name">restaurant name</option>
 	<option value="borough">restaurant borough</option>
@@ -24,8 +21,8 @@
 	<option value="building">restaurant building</option>
 	<option value="street">restaurant street</option>
 	<option value="zipcode">restaurant zipcode</option>
-	<option value="x-coord">restaurant x-coord</option>
-	<option value="y-coord">restaurant y-coord</option>
+	<option value="xcoord">restaurant x-coord</option>
+	<option value="ycoord">restaurant y-coord</option>
   </select>
   <input name="edit"class="w3-input" type="text" style="width:90%" >
   <p>
