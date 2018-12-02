@@ -338,19 +338,22 @@ app.get('/api/restaurant/cuisine/:cuisine',function(req,res){
 	});
 });
 
-app.post('/comments', (req, res) => {
-    console.log(req.body);
-    const { name, time, content } = req.body;
-    if( !name || !time || !content ){
-        res.sendStatus(403);
-    }
-    const myDb = db.db('franco') ;	
-    db.collection('comments').insertOne(req.body, (err, result) => {
-        if (err) return res.sendStatus(500);
-        console.log('saved to database')
-        res.send(req.body);
+app.post("/api/contacts", function(req, res) {
+  var newContact = req.body;
+  newContact.createDate = new Date();
+
+  if (!req.body.name) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  } else {
+    db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new contact.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
     });
-})
+  }
+});
 
 
 function insertRestaurant(db,r,callback) {
