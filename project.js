@@ -338,39 +338,23 @@ app.get('/api/restaurant/cuisine/:cuisine',function(req,res){
 	});
 });
 
-app.post('/api/restaurant/:insert',function(req,res){
-    var result = {};
-    result['borough'] = insert.borough;
-    result['cuisine'] = insert.cuisine;
-    result['name'] = insert.name;
-    address = {}
-    address['building'] = insert.building;
-    address['street'] = insert.street;
-    address['zipcode'] = insert.zipcode;
-    coord = {}
-    coord['xcoord'] = insert.x_coordinate;
-    coord['ycoord'] = insert.y_coordinate;
-    address['coord'] = coord;
-    result['address'] = address;
-    grades = []
-    grade = {}
-    grade['user'] = null;
-    grade['score'] = null;
-    grades.push(grade);
-    max = 5
-    result['grades'] = grades;
-    MongoClient.connect(mongourl,function(err,db) {
-		if(insert.name==null){
-		  res.status(500).json('{ status: failed }').end();
-		}
-		assert.equal(err,null);
-		console.log('Connected to MongoDB\n');
-		insertRestaurant(db,result,function(result) {
-			db.close();
-      			res.status(500).json('{ status: ok }').end();			
-		});
-	});
-   });
+app.post("/api/contacts", function(req, res) {
+  var newContact = req.body;
+  newContact.createDate = new Date();
+
+  if (!req.body.name) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  } else {
+    const myDb = db.db('franco') ;
+    myDb.collection('restaurant').insertOne(newContact, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new contact.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
+  }
+});
 
 
 
