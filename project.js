@@ -338,7 +338,7 @@ app.get('/api/restaurant/cuisine/:cuisine',function(req,res){
 	});
 });
 
-app.post('/comments', (req, res) => {
+app.post('/api/restaurants', (req, res) => {
     console.log(req.body);      // your JSON
     db.collection('comments').save(req.body, (err, result) => {
         if (err) return console.log(err)
