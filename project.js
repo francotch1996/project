@@ -338,44 +338,19 @@ app.get('/api/restaurant/cuisine/:cuisine',function(req,res){
 	});
 });
 
-app.post('/api/restaurant/:insert',function(req,res){
-    var result = {};
-    result['borough'] = insert.borough;
-    result['cuisine'] = insert.cuisine;
-    result['name'] = insert.name;
-    address = {}
-    address['building'] = insert.building;
-    address['street'] = insert.street;
-    address['zipcode'] = insert.zipcode;
-    coord = {}
-    coord['xcoord'] = insert.x_coordinate;
-    coord['ycoord'] = insert.y_coordinate;
-    address['coord'] = coord;
-    result['address'] = address;
-    grades = []
-    grade = {}
-    grade['user'] = null;
-    grade['score'] = null;
-    grades.push(grade);
-    max = 5
-    result['grades'] = grades;
-    MongoClient.connect(mongourl,function(err,db) {
-		if(insert.name==null){
-		  res.status(500).json('{ status: failed }').end();
-		}
-		assert.equal(err,null);
-		console.log('Connected to MongoDB\n');
-		insertRestaurant(db,result,function(result) {
-			db.close();
-      			res.status(500).json('{ status: ok }').end();			
-		});
-	});
-});
-
-
-
-
-
+app.post('/comments', (req, res) => {
+    console.log(req.body);
+    const { name, time, content } = req.body;
+    if( !name || !time || !content ){
+        res.sendStatus(403);
+    }
+    const myDb = db.db('franco') ;	
+    db.collection('comments').insertOne(req.body, (err, result) => {
+        if (err) return res.sendStatus(500);
+        console.log('saved to database')
+        res.send(req.body);
+    });
+})
 
 
 function insertRestaurant(db,r,callback) {
