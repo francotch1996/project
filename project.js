@@ -361,7 +361,7 @@ app.post('/api/restaurant', function(req, res) {
 
 	console.log('About to insert: ' + JSON.stringify(new_r));
 
-	if (new_r["name"] != null && new_r["owner_id"] != null) {
+	if (new_r['name'] != null && new_r['owner_id'] != null) {
 		MongoClient.connect(mongourl, function(err, db) {
 			assert.equal(err, null);
 			console.log('Connected to MongoDB\n');
