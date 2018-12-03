@@ -18,7 +18,7 @@
 	    <p>Building: <%=restaurants[0].address.building%></p>
 	    <p>Zipcode:  <%=restaurants[0].address.zipcode%></p>
 	    <p>Coordinate: [<%=restaurants[0].address.coord.xcoord%>,<%=restaurants[0].address.coord.ycoord%>]</p>
-	    <%for a in restaurants[0].score.length{%>
+	    <%for a in restaurants[0].score{%>
 	    <%if(restaurants[0].score[a].user!=null){%>
 	    <p>Scre%=restaurants[0].score[a].user%></p>
 	    <%}}%>
