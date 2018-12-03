@@ -20,7 +20,7 @@
 	    <p>Coordinate: [<%=restaurants[0].address.coord.xcoord%>,<%=restaurants[0].address.coord.ycoord%>]</p>
 	    <%for (a in restaurants[0].grades){%>
 	    <%if(restaurants[0].grades[a].user!=null){%>
-	    <p>Score: <%=restaurants[0].grades[a]%></p>
+	    <p>Score: <%=restaurants[0].grades[a].score%>(<%=restaurants[0].grades[a].user%>)</p>
 	    <%}}%>
 	    <%if(restaurants[0].address.coord.xcoord != "" && restaurants[0].address.coord.ycoord != ""){%>
 	    <a href="<%= link%>">Google Map Url</a></p>
