@@ -342,6 +342,7 @@ app.post('/api/restaurant', function(req, res) {
 	var new_r = {}; // document to be inserted
 	if (req.body.restaurant_id) new_r['restaurant_id'] = req.body.restaurant_id;
 	if (req.body.name) new_r['name'] = req.body.name;
+	
 	if (req.body.borough) new_r['borough'] = req.body.borough;
 	if (req.body.cuisine) new_r['cuisine'] = req.body.cuisine;
 	if (req.body.photo) new_r['photo'] = req.body.photo;
@@ -355,6 +356,7 @@ app.post('/api/restaurant', function(req, res) {
 		if (req.body.xcoord || req.body.ycoord) address['coord'] = [req.body.xcoord, req.body.ycoord];
 		new_r['address'] = address;
 	}
+	console.log(req.body.owner_id);
 	if (req.body.owner_id) new_r['owner_id'] = req.body.owner_id;
 
 	console.log('About to insert: ' + JSON.stringify(new_r));
