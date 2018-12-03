@@ -357,7 +357,7 @@ app.post('/api/restaurant', function(req, res) {
 		new_r['address'] = address;
 	}
 	console.log(req.body.owner_id);
-	if (req.body.owner_id) new_r['owner_id'] = req.body.owner_id;
+	if (req.body.owner) new_r['owner_id'] = req.body.owner;
 
 	console.log('About to insert: ' + JSON.stringify(new_r));
 
