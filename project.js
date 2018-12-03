@@ -338,14 +338,46 @@ app.get('/api/restaurant/cuisine/:cuisine',function(req,res){
 	});
 });
 
-app.post('/api/restaurants', (req, res) => {
-    console.log(req.body);      // your JSON
-    db.collection('comments').save(req.body, (err, result) => {
-        if (err) return console.log(err)
-        console.log('saved to database')
-        res.send(req.body);
-    });
-})
+app.post('/api/restaurant', function(req, res) {
+	var new_r = {}; // document to be inserted
+	if (req.body.restaurant_id) new_r['restaurant_id'] = req.body.restaurant_id;
+	if (req.body.name) new_r['name'] = req.body.name;
+	if (req.body.borough) new_r['borough'] = req.body.borough;
+	if (req.body.cuisine) new_r['cuisine'] = req.body.cuisine;
+	if (req.body.photo) new_r['photo'] = req.body.photo;
+	if (req.body.photo_mimetype) new_r['photo_mimetype'] = req.body.photo_mimetype;
+
+	if (req.body.building || req.body.street || req.body.zipcode || req.body.xcoord || req.body.ycoord) {
+		var address = {};
+		if (req.body.building) address['building'] = req.body.building;
+		if (req.body.street) address['street'] = req.body.street;
+		if (req.body.zipcode) address['zipcode'] = req.body.zipcode;
+		if (req.body.xcoord || req.body.ycoord) address['coord'] = [req.body.xcoord, req.body.ycoord];
+		new_r['address'] = address;
+	}
+	if (req.body.owner_id) new_r['owner_id'] = req.body.owner_id;
+
+	console.log('About to insert: ' + JSON.stringify(new_r));
+
+	if (new_r["name"] != null && new_r["owner"] != null) {
+		MongoClient.connect(mongourl, function(err, db) {
+			assert.equal(err, null);
+			console.log('Connected to MongoDB\n');
+			insertRestaurant(db, new_r, function(result) {
+				db.close();
+				console.log(JSON.stringify(result));
+				res.json({ status: "ok", _id: new_r._id });
+
+			});
+		});
+
+	}
+	else {
+		res.json({ status: "failed" });
+	}
+
+
+});
 
 
 function insertRestaurant(db,r,callback) {
